@@ -5,6 +5,120 @@ var limitselect = 20
 var globheroes = []
 var currentheros = []
 var isAscending = true
+document.getElementById("Alignment").addEventListener("click", function () {
+  for (let i = 0; i < currentheros.length; i++) {
+    for (let j = i + 1; j < currentheros.length; j++) {
+      let a = currentheros[i].biography.alignment
+      let b = currentheros[j].biography.alignment
+      if (a == "-" && b != "-") {
+        swap(i, j)
+      } else if (a < b && b != "-" && isAscending) {
+        swap(i, j)
+      } else if (a > b && b != "-" && !isAscending) {
+        swap(i, j)
+      }
+    }
+  }
+  isAscending = !isAscending
+  loadData(currentheros)
+})
+document.getElementById("Place_of_Birth").addEventListener("click", function () {
+  for (let i = 0; i < currentheros.length; i++) {
+    for (let j = i + 1; j < currentheros.length; j++) {
+      let a = currentheros[i].biography.placeOfBirth
+      let b = currentheros[j].biography.placeOfBirth
+      if (a == "-" && b != "-") {
+        swap(i, j)
+      } else if (a < b && b != "-" && isAscending) {
+        swap(i, j)
+      } else if (a > b && b != "-" && !isAscending) {
+        swap(i, j)
+      }
+    }
+  }
+  isAscending = !isAscending
+  loadData(currentheros)
+})
+document.getElementById("Race").addEventListener("click", function () {
+  for (let i = 0; i < currentheros.length; i++) {
+    for (let j = i + 1; j < currentheros.length; j++) {
+      let a = currentheros[i].appearance.race
+      let b = currentheros[j].appearance.race
+
+      if (a == null && b != null) {
+        swap(i, j)
+      } else if (a < b && b != null && isAscending) {
+        swap(i, j)
+      } else if (a > b && b != null && !isAscending) {
+        swap(i, j)
+      }
+    }
+  }
+  isAscending = !isAscending
+  loadData(currentheros)
+})
+document.getElementById("Gender").addEventListener("click", function () {
+  for (let i = 0; i < currentheros.length; i++) {
+    for (let j = i + 1; j < currentheros.length; j++) {
+      let a = currentheros[i].appearance.gender
+      let b = currentheros[j].appearance.gender
+      if (a.length < 4) {
+        a = ""
+      }
+      if (b.length < 4) {
+        b = ""
+      }
+      if (a == "" && b != "") {
+        swap(i, j)
+      } else if (a < b && b != "" && isAscending) {
+        swap(i, j)
+      } else if (a > b && b != "" && !isAscending) {
+        swap(i, j)
+      }
+    }
+  }
+  isAscending = !isAscending
+  loadData(currentheros)
+})
+
+document.getElementById("Name").addEventListener("click", function () {
+  for (let i = 0; i < currentheros.length; i++) {
+    for (let j = i + 1; j < currentheros.length; j++) {
+      let a = currentheros[i].name
+      let b = currentheros[j].name
+      if (a < b && isAscending) {
+        swap(i, j)
+      } else if (a > b && !isAscending) {
+        swap(i, j)
+      }
+    }
+  }
+  isAscending = !isAscending
+  loadData(currentheros)
+})
+document.getElementById("Full_Name").addEventListener("click", function () {
+  for (let i = 0; i < currentheros.length; i++) {
+    for (let j = i + 1; j < currentheros.length; j++) {
+      let a = currentheros[i].biography.fullName
+      let b = currentheros[j].biography.fullName
+      if (a == "" && b != "") {
+        swap(i, j)
+      } else if (a < b && b != "" && isAscending) {
+        swap(i, j)
+      } else if (a > b && b != "" && !isAscending) {
+        swap(i, j)
+      }
+    }
+  }
+  isAscending = !isAscending
+  loadData(currentheros)
+})
+function swap(i, j) {
+  let c = currentheros[i]
+  currentheros[i] = currentheros[j]
+  currentheros[j] = c
+}
+
 document.getElementById("Height").addEventListener("click", function () {
   for (let i = 0; i < currentheros.length; i++) {
     for (let j = i + 1; j < currentheros.length; j++) {
@@ -12,23 +126,16 @@ document.getElementById("Height").addEventListener("click", function () {
       if (currentheros[i].appearance.height.length == 2) {
         a = getNumber(currentheros[i].appearance.height[1])
       }
-
       let b = 0
       if (currentheros[j].appearance.height.length == 2) {
         b = getNumber(currentheros[j].appearance.height[1])
       }
-      if (a==0 && b!=0){
-        let a = currentheros[i]
-        currentheros[i] = currentheros[j]
-        currentheros[j] = a
-      }else if (a <= b && b!=0 && isAscending) {
-        let c = currentheros[i]
-        currentheros[i] = currentheros[j]
-        currentheros[j] = c
-      } else if (a >= b && b!=0 && !isAscending) {
-        let c = currentheros[i]
-        currentheros[i] = currentheros[j]
-        currentheros[j] = c
+      if (a == 0 && b != 0) {
+        swap(i, j)
+      } else if (a <= b && b != 0 && isAscending) {
+        swap(i, j)
+      } else if (a >= b && b != 0 && !isAscending) {
+        swap(i, j)
       }
     }
   }
@@ -46,23 +153,16 @@ document.getElementById("Weight").addEventListener("click", function () {
       if (currentheros[i].appearance.weight.length == 2) {
         a = getNumber(currentheros[i].appearance.weight[0])
       }
-
       let b = 0
       if (currentheros[j].appearance.weight.length == 2) {
         b = getNumber(currentheros[j].appearance.weight[0])
       }
-      if (a==0 && b!=0){
-        let a = currentheros[i]
-        currentheros[i] = currentheros[j]
-        currentheros[j] = a
-      }else if ((a > b && b!=0) && isAscending) {
-        let a = currentheros[i]
-        currentheros[i] = currentheros[j]
-        currentheros[j] = a
-      } else if ((a < b && b!=0 ) && !isAscending) {
-        let c = currentheros[i]
-        currentheros[i] = currentheros[j]
-        currentheros[j] = c
+      if (a == 0 && b != 0) {
+        swap(i, j)
+      } else if ((a > b && b != 0) && isAscending) {
+        swap(i, j)
+      } else if ((a < b && b != 0) && !isAscending) {
+        swap(i, j)
       }
     }
   }
@@ -173,7 +273,7 @@ const loadData = (heroes) => {
 
     // Full Name
     let fullNameCell = document.createElement("td");
-    fullNameCell.textContent = heroes[i].biography.fullName || "N/A";
+    fullNameCell.textContent = heroes[i].biography.fullName || "";
     tr.appendChild(fullNameCell);
 
     // Powerstats
@@ -184,32 +284,32 @@ const loadData = (heroes) => {
 
     // Race
     let raceCell = document.createElement("td");
-    raceCell.textContent = heroes[i].appearance.race || "N/A";
+    raceCell.textContent = heroes[i].appearance.race || "";
     tr.appendChild(raceCell);
 
     // Gender
     let genderCell = document.createElement("td");
-    genderCell.textContent = heroes[i].appearance.gender || "N/A";
+    genderCell.textContent = heroes[i].appearance.gender || "";
     tr.appendChild(genderCell);
 
     // Height
     let heightCell = document.createElement("td");
-    heightCell.textContent = heroes[i].appearance.height[1] || "N/A";
+    heightCell.textContent = heroes[i].appearance.height[1] || "";
     tr.appendChild(heightCell);
 
     // Weight
     let weightCell = document.createElement("td");
-    weightCell.textContent = heroes[i].appearance.weight[1] || "N/A";
+    weightCell.textContent = heroes[i].appearance.weight[1] || "";
     tr.appendChild(weightCell);
 
     // Place of Birth
     let placeOfBirthCell = document.createElement("td");
-    placeOfBirthCell.textContent = heroes[i].biography.placeOfBirth || "Unknown";
+    placeOfBirthCell.textContent = heroes[i].biography.placeOfBirth || "";
     tr.appendChild(placeOfBirthCell);
 
     // Alignment (good/bad/neutral)
     let alignmentCell = document.createElement("td");
-    alignmentCell.textContent = heroes[i].biography.alignment || "Unknown";
+    alignmentCell.textContent = heroes[i].biography.alignment || "";
     tr.appendChild(alignmentCell);
 
     // Append the row to the table body
@@ -218,13 +318,12 @@ const loadData = (heroes) => {
 };
 
 
-// Fetch the data and store it globally
-export function getdata() {
-  fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
-    .then((response) => response.json()) // Parse the response from JSON
-    .then((h) => {
-      globheroes = h
-      currentheros = h
-      loadData(h); // Load the initial data with a default limit of 10
-    })
-}
+
+fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
+  .then((response) => response.json()) // Parse the response from JSON
+  .then((h) => {
+    globheroes = h
+    currentheros = h
+    loadData(h); // Load the initial data with a default limit of 10
+  })
+

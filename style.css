@@ -1,5 +1,147 @@
-#bttn{
-  display:flex;
-  justify-content: space-between;
-  background-color: brown;
+/* General body styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+/* Div container styles */
+.divs {
+  margin: 20px auto;
+  padding: 10px;
+  max-width: 90%;
+  text-align: center;
+}
+
+/* Button and search bar section */
+#bttn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Button styling */
+button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Input search bar */
+#SBar {
+  padding: 10px;
+  font-size: 16px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#SBar:focus {
+  outline: none;
+  border-color: #007BFF;
+}
+
+/* Dropdown styling */
+#limitSelect {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Table styling */
+#heroesTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px auto;
+  max-width: 95%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#heroesTable thead {
+  background-color: #007BFF;
+  color: white;
+}
+
+#heroesTable th,
+#heroesTable td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Table row hover effect */
+#heroesTable tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Table headers click styles for sorting */
+#heroesTable th {
+  cursor: pointer;
+  position: relative;
+}
+
+#heroesTable th::after {
+  content: '▼'; /* Triangle for sorting */
+  font-size: 12px;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+#heroesTable th.sorted::after {
+  opacity: 1;
+}
+
+/* Responsive table for mobile */
+@media (max-width: 768px) {
+  #heroesTable thead {
+    display: none;
+  }
+
+  #heroesTable tbody td {
+    display: block;
+    text-align: left;
+    padding: 8px;
+  }
+
+  #heroesTable tbody tr {
+    margin-bottom: 10px;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  #heroesTable tbody td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    margin-right: 10px;
+    display: inline-block;
+  }
+
+  button {
+    font-size: 14px;
+  }
+
+  #SBar {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  #limitSelect {
+    font-size: 14px;
+  }
 }

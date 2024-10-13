@@ -60,9 +60,10 @@ This project organizes superhero data in a web page without relying on any frame
 
    Thanks to the amazing contributors of this project:
 
-   [![amazighi](https://github.com/amazighii.png?size=70)](https://github.com/amazighii) ![aminehabchi](https://github.com/aminehabchi.png?size=70)
-   ![AmineS530](https://github.com/AmineS530.png?size=70) 
+ [![amazighi](https://github.com/amazighii.png?size=70)](https://github.com/amazighii)
+[![aminehabchi](https://github.com/aminehabchi.png?size=70)](https://github.com/aminehabchi)
+[![AmineS530](https://github.com/AmineS530.png?size=70)](https://github.com/AmineS530)
 
-   #
+#
 
 

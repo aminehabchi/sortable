@@ -5,6 +5,23 @@ var limitselect = 20
 var globheroes = []
 var currentheros = []
 var isAscending = true
+document.getElementById("Powerstats").addEventListener("click", function () {
+  for (let i = 0; i < currentheros.length; i++) {
+    for (let j = i + 1; j < currentheros.length; j++) {
+      let a = parseFloat(currentheros[i].powerstats.intelligence)+ parseFloat(currentheros[i].powerstats.strength)+parseFloat(currentheros[i].powerstats.speed)+parseFloat(currentheros[i].powerstats.durability)+parseFloat(currentheros[i].powerstats.power)+parseFloat(currentheros[i].powerstats.combat)
+      let b = parseFloat(currentheros[j].powerstats.intelligence)+ parseFloat(currentheros[j].powerstats.strength)+parseFloat(currentheros[j].powerstats.speed)+parseFloat(currentheros[j].powerstats.durability)+parseFloat(currentheros[j].powerstats.power)+parseFloat(currentheros[j].powerstats.combat)
+      if (a == 0 && b != 0) {
+        swap(i, j)
+      } else if (a < b && b != 0 && isAscending) {
+        swap(i, j)
+      } else if (a > b && b != 0 && !isAscending) {
+        swap(i, j)
+      }
+    }
+  }
+  isAscending = !isAscending
+  loadData(currentheros)
+})
 document.getElementById("Alignment").addEventListener("click", function () {
   for (let i = 0; i < currentheros.length; i++) {
     for (let j = i + 1; j < currentheros.length; j++) {
@@ -185,6 +202,7 @@ function getNumber(s) {
   }
   return num
 }
+
 document.getElementById("Next").addEventListener("click", function () {
   start += limitselect
   end += limitselect
@@ -233,7 +251,7 @@ document.getElementById("SBar").addEventListener("input", function () {
 
 
 
-const loadData = (heroes) => {
+export const loadData = (heroes) => {
 
 
   if (heroes.length == 0) {

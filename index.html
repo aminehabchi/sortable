@@ -1,44 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sortable Heroes Table</title>
-</head>
-<body>
-    <!-- Dropdown to select the number of heroes per page -->
-    <select id="limitSelect" onchange="updateData()">
-        <option value="20">20</option>
-        <option value="10">10</option>
-        <option value="50">50</option>
-        <option value="100">100</option>
-    </select><br>
 
+<head>
+  <meta charset="UTF-8">
+  <title>Sortable Heroes Table</title>
+</head>
+
+<body>
+
+
+  <div id="bttn" class="divs">
+    <button id="Prev">Prev</button>
+    <!-- Dropdown to select the number of heroes per page -->
+    <select id="limitSelect">
+      <option value="20">20</option>
+      <option value="10">10</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+      <option value="all results">all results</option>
+    </select>
+    <input type="search" id="SBar">
+    <button id="Next">Next</button>
+  </div>
+
+
+  <div class="divs">
     <!-- Table to display the hero data -->
     <table id="heroesTable">
-        <thead>
-          <tr>
-            <th>Icon</th>
-            <th>Name</th>
-            <th>Full Name</th>
-            <th>Powerstats</th>
-            <th>Race</th>
-            <th>Gender</th>
-            <th>Height</th>
-            <th>Weight</th>
-            <th>Place of Birth</th>
-            <th>Alignment</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Rows will be inserted here dynamically -->
-        </tbody>
-      </table>
-
-      <!-- Include the JavaScript -->
-      <script type="module">
-        import { getdata } from './sortable.js';
-        import { updateData } from './sortable.js';
-        getdata(); // Load the initial data
-      </script>
+      <thead>
+        <tr>
+          <th>Icon</th>
+          <th id="Name">Name</th>
+          <th id="Full_Name">Full Name</th>
+          <th id="Powerstats">Powerstats</th>
+          <th id="Race">Race</th>
+          <th id="Gender">Gender</th>
+          <th id="Height">Height</th>
+          <th id="Weight">Weight</th>
+          <th id="Place_of_Birth">Place of Birth</th>
+          <th id="Alignment">Alignment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows will be inserted here dynamically -->
+      </tbody>
+    </table>
+  </div>
+  <!-- Include the JavaScript -->
+  <script type="module">
+    import { getdata } from './sortable.js';
+    getdata(); // Load the initial data
+  </script>
 </body>
+
 </html>

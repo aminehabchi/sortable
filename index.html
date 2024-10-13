@@ -9,10 +9,8 @@
 
 <body>
 
-
   <div id="bttn" class="divs">
     <button id="Prev">Prev</button>
-    <!-- Dropdown to select the number of heroes per page -->
     <select id="limitSelect">
       <option value="20">20</option>
       <option value="10">10</option>
@@ -24,9 +22,7 @@
     <button id="Next">Next</button>
   </div>
 
-
   <div class="divs">
-    <!-- Table to display the hero data -->
     <table id="heroesTable">
       <thead>
         <tr>
@@ -34,7 +30,7 @@
           <th id="Name">Name</th>
           <th id="Full_Name">Full Name</th>
           <th id="Powerstats">Powerstats</th>
-          <th id="Race">Race</th>
+          <th id="Race">Race</th> 
           <th id="Gender">Gender</th>
           <th id="Height">Height</th>
           <th id="Weight">Weight</th>
@@ -43,14 +39,13 @@
         </tr>
       </thead>
       <tbody>
-        <!-- Rows will be inserted here dynamically -->
       </tbody>
     </table>
   </div>
-  <!-- Include the JavaScript -->
-  <script type="module">
-    import {} from './sortable.js';
-  </script>
+
+  <script src="sortable.js"></script> 
+  <script src="listeners.js"></script>
+
 </body>
 
 </html>
